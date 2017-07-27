@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="IncomeCalendarView">
+        <!--这四个颜色分别是月份、星期、日期、任务的背景色，只是方便调试测量时使用，正式试用时可配置透明色-->
+        <attr name="mBgMonth"
+            format="color"/>
+        <attr name="mBgWeek"
+            format="color"/>
+        <attr name="mBgDay"
+            format="color"/>
+        <attr name="mBgDot"
+            format="color"/>
+
+        <attr name="mTextColorMonth"
+            format="color"/>           <!--标题字体颜色-->
+        <attr name="mTextColorWeek"
+            format="color"/>            <!--星期字体颜色-->
+        <attr name="mTextColorDay"
+            format="color"/>             <!--日期字体颜色-->
+        <attr name="mSelectTextColor"
+            format="color"/>          <!--选中日期字体颜色-->
+        <attr name="mSelectBg"
+            format="color"/>                 <!--选中日期背景-->
+        <attr name="mCurrentTextColor"
+            format="color"/>                <!--当天日期字体颜色-->
+        <attr name="mPopupTextColor"
+            format="color"/>                <!--弹窗字体颜色-->
+
+        <attr name="mTextSizeMonth"
+            format="dimension"/>        <!--标题字体大小-->
+        <attr name="mTextSizeWeek"
+            format="dimension"/>         <!--星期字体大小-->
+        <attr name="mTextSizeDay"
+            format="dimension"/>          <!--日期字体大小-->
+        <attr name="mTextSizePopup"
+            format="dimension"/>          <!--弹窗字体大小-->
+
+        <attr name="mMonthRowL"
+            format="reference"/>            <!--月份箭头-->
+        <attr name="mMonthRowR"
+            format="reference"/>            <!--月份箭头-->
+        <attr name="mPopupBg"
+            format="reference"/>            <!--弹窗背景图-->
+        <attr name="mMonthRowSpace"
+            format="dimension"/>
+        <attr name="mMonthTopSpace"
+            format="dimension"/>
+
+        <attr name="mSelectRadius"
+            format="dimension"/>         <!--选中日期背景半径-->
+        <attr name="mMonthUpSpace"
+            format="dimension"/>            <!--标题月份下间隔-->
+        <attr name="mMonthDownSpace"
+            format="dimension"/>            <!--标题月份下间隔-->
+        <attr name="mLineSpace"
+            format="dimension"/>             <!--日期行间距-->
+        <attr name="mDotSpace"
+            format="dimension"/>             <!--小圆点上下间距-->
+        <attr name="mPopupSpace"
+            format="dimension"/>             <!--弹窗下间距-->
+        <attr name="mDotRadius"
+            format="dimension"/>            <!--小圆点半径-->
+    </declare-styleable>
+
+    <!--定义theme可配置style-->
+    <attr name="calendar.custom"
+        format="reference"/>
+
+    <style name="CalendarDefault">
+        <item name="mBgMonth">#00000000</item>
+        <item name="mBgWeek">#00000000</item>
+        <item name="mBgDay">#00000000</item>
+        <item name="mBgDot">#00000000</item>
+        <item name="mTextColorMonth">#000000</item>
+        <item name="mTextColorWeek">#a3a3a3</item>
+        <item name="mTextColorDay">#000000</item>
+        <item name="mPopupTextColor">#FFFFFF</item>
+        <item name="mSelectTextColor">#000000</item>
+        <item name="mSelectBg">#00000000</item>
+        <item name="mCurrentTextColor">#000000</item>
+        <item name="mTextSizeMonth">15dp</item>
+        <item name="mTextSizeWeek">12sp</item>
+        <item name="mTextSizeDay">13sp</item>
+        <item name="mTextSizePopup">14sp</item>
+        <item name="mMonthRowL">@drawable/arrow_left</item>
+        <item name="mMonthRowR">@drawable/arrow_right</item>
+        <item name="mPopupBg">@drawable/popup_bg</item>
+        <item name="mMonthRowSpace">46dp</item>
+        <item name="mSelectRadius">10dp</item>
+        <item name="mMonthDownSpace">41dp</item>
+        <item name="mMonthUpSpace">28dp</item>
+        <item name="mMonthTopSpace">30dp</item>
+        <item name="mLineSpace">21dp</item>
+        <item name="mDotSpace">4dp</item>
+        <item name="mDotRadius">3.5dp</item>
+        <item name="mPopupSpace">2dp</item>
+    </style>
+</resources>
