@@ -69,6 +69,8 @@ public class IncomeCalendarView extends View {
     private float mPopupSpace;         //弹窗下间距
     private float mDotRadius;         //小圆点半径
 
+    private String mMonthFormat;        //title显示的月份格式
+
     private Paint mPaint;
     private Paint mBgPaint;
     private Paint mDotPaint;
@@ -167,6 +169,9 @@ public class IncomeCalendarView extends View {
         mPopupSpace = ta.getDimension(R.styleable.IncomeCalendarView_mPopupSpace, 6);
         mDotSpace = ta.getDimension(R.styleable.IncomeCalendarView_mDotSpace, 12);
         mDotRadius = ta.getDimension(R.styleable.IncomeCalendarView_mDotRadius, 10);
+
+        mMonthFormat = ta.getString(R.styleable.IncomeCalendarView_mMonthFormat);
+
         ta.recycle();
 
         init();
@@ -255,7 +260,10 @@ public class IncomeCalendarView extends View {
 
     private String getMonthStr(Date month) {
         if (mDateFormat == null) {
-            mDateFormat = new SimpleDateFormat("yyyy年MM月", Locale.getDefault());
+            if (mMonthFormat == null) {
+                mMonthFormat = "yyyy年MM月";
+            }
+            mDateFormat = new SimpleDateFormat(mMonthFormat, Locale.getDefault());
         }
         return mDateFormat.format(month);
     }
@@ -294,7 +302,7 @@ public class IncomeCalendarView extends View {
         mPaint.setFakeBoldText(true);
         mPaint.setTextSize(mTextSizeMonth);
         mPaint.setColor(mTextColorMonth);
-        String monthStr = mCalendar.get(Calendar.MONTH) + 1 + "月";
+        String monthStr = getMonthStr(mCalendar.getTime());
         float textLen = getFontLength(mPaint, monthStr);
         float textStart = (getWidth() - textLen) / 2;
         canvas.drawText(monthStr, textStart, mMonthUpSpace + getFontLeading(mPaint), mPaint);
@@ -426,7 +434,7 @@ public class IncomeCalendarView extends View {
             canvas.drawText(day + "", x, y, mPaint);
 
             //绘制小圆点
-            if (dotBean != null && dotBean.isShow()) {
+            if (dotBean != null && dotBean.isShowDot()) {
                 mDotPaint.setColor(dotBean.getColor());
                 x += len / 2;
                 canvas.drawCircle(x, topDot + mDotSpace + mDotRadius, mDotRadius, mDotPaint);
@@ -479,8 +487,8 @@ public class IncomeCalendarView extends View {
                     //Log.w(TAG, "点击右箭头");
                     mOnClickListener.onRightRowClick();
                 } else if (point.x > mRowLStart && point.x < mRowRStart) {
-                    mOnClickListener.onTitleClick(
-                            mCalendar.get(Calendar.MONTH) + 1 + "月", mCalendar.getTime());
+                    Date time = mCalendar.getTime();
+                    mOnClickListener.onTitleClick(getMonthStr(time), time);
                     hidePopup();
                 } else {
                     hidePopup();
@@ -699,7 +707,7 @@ public class IncomeCalendarView extends View {
     }
 
     interface DotBean {
-        boolean isShow();
+        boolean isShowDot();
 
         @ColorInt
         int getColor();

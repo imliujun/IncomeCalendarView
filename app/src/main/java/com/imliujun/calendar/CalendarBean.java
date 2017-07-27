@@ -19,7 +19,7 @@ public class CalendarBean implements IncomeCalendarView.DotBean {
 
 
     @Override
-    public boolean isShow() {
+    public boolean isShowDot() {
         return color != 0;
     }
 

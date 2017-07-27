@@ -60,6 +60,8 @@
             format="dimension"/>             <!--弹窗下间距-->
         <attr name="mDotRadius"
             format="dimension"/>            <!--小圆点半径-->
+        <attr name="mMonthFormat"
+            format="string"/>           <!--title显示的月份格式-->
     </declare-styleable>
 
     <!--定义theme可配置style-->
@@ -94,5 +96,6 @@
         <item name="mDotSpace">4dp</item>
         <item name="mDotRadius">3.5dp</item>
         <item name="mPopupSpace">2dp</item>
+        <item name="mMonthFormat">MM月</item>
     </style>
 </resources>
