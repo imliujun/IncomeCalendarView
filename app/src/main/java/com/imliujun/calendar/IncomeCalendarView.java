@@ -60,10 +60,10 @@ public class IncomeCalendarView extends View {
     private Bitmap mMonthRowR;            //月份箭头
     private float mMonthRowSpace;           //箭头间距
     private float mMonthTopSpace;           //箭头上间距
+    private float mMonthUpSpace;              //标题月份上间隔
+    private float mMonthDownSpace;              //标题月份下间隔
 
     private float mSelectRadius;            //选中日期背景半径
-    private float mMonthUpSpace;              //标题月份下间隔
-    private float mMonthDownSpace;              //标题月份下间隔
     private float mLineSpace;               //日期行间距
     private float mDotSpace;         //日期和小圆点上下间距
     private float mPopupSpace;         //弹窗下间距
@@ -147,7 +147,7 @@ public class IncomeCalendarView extends View {
                 .getColor(R.styleable.IncomeCalendarView_mCurrentTextColor, mTextColorDay);
         mPopupColor = ta.getColor(R.styleable.IncomeCalendarView_mPopupTextColor, mTextColorDay);
 
-        mTextSizeMonth = ta.getDimension(R.styleable.IncomeCalendarView_mTextSizeMonth, 78);
+        mTextSizeMonth = ta.getDimension(R.styleable.IncomeCalendarView_mTextSizeMonth, 45);
         mTextSizeWeek = ta.getDimension(R.styleable.IncomeCalendarView_mTextSizeWeek, 36);
         mTextSizeDay = ta.getDimension(R.styleable.IncomeCalendarView_mTextSizeDay, 39);
         mTextSizePopup = ta.getDimension(R.styleable.IncomeCalendarView_mTextSizePopup, 39);

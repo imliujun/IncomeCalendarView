@@ -7,9 +7,9 @@
     android:orientation="vertical"
     tools:context="com.imliujun.calendar.MainActivity">
 
-
     <com.imliujun.calendar.IncomeCalendarView
         android:id="@+id/calendar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        style="@style/CalendarDefault"/>
 </LinearLayout>
